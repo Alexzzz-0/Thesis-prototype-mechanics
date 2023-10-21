@@ -79,6 +79,12 @@ public class PetsBehavior : MonoBehaviour
         {
             Die();
         }
+        
+        if (other.gameObject.CompareTag("Pet1"))
+        {
+            GameManager.Instance.DieEffect(transform.position);
+            transform.DOMove((transform.position - other.gameObject.transform.position).normalized + transform.position, 1f);
+        }
     }
 
     void Die()
